@@ -1,6 +1,6 @@
 import 'package:contact_app/core/app_colors.dart';
 import 'package:contact_app/core/widgets/custom_button.dart';
-import 'package:contact_app/widgets/card_image.dart';
+import 'package:contact_app/widgets/image_bottom_sheet.dart';
 import 'package:contact_app/widgets/form_bottom_sheet.dart';
 import 'package:contact_app/widgets/info_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class _AddContactBottomSheetState extends State<AddContactBottomSheet> {
           children: [
             Row(
               children: [
-                CardImage(),
+                ImageBottomSheet(),
                 SizedBox(width: width * 0.02),
                 InfoBottomSheet(),
               ],
@@ -51,6 +51,7 @@ class _AddContactBottomSheetState extends State<AddContactBottomSheet> {
             ),
             SizedBox(height: height * 0.02),
             CustomButton(
+              hasIcon: false,
               onTap: () {
                 if (_formkey.currentState!.validate()) {}
                 setState(() {});
