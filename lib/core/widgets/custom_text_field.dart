@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: AppStyles.hintText,
       cursorColor: AppColors.gold,
       decoration: AppStyles.buildInputDecoration(title),
     );
