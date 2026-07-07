@@ -4,11 +4,22 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String title;
-  const CustomTextField({super.key, required this.title});
+  final TextEditingController controller;
+  final Function validate;
+  const CustomTextField({
+    super.key,
+    required this.title,
+    required this.controller,
+    required this.validate,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        return validate(value);
+      },
+      controller: controller,
       style: AppStyles.hintText,
       cursorColor: AppColors.gold,
       decoration: AppStyles.buildInputDecoration(title),
