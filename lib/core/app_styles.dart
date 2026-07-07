@@ -1,5 +1,5 @@
 import 'package:contact_app/core/app_colors.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppStyles {
   static const TextStyle homeText = TextStyle(
@@ -37,4 +37,28 @@ abstract class AppStyles {
     fontSize: 10,
     color: AppColors.white,
   );
+
+  static InputDecoration buildInputDecoration(String title) {
+    return InputDecoration(
+      contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      hintText: title,
+      hintStyle: AppStyles.hintText,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.gold),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.gold),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: Colors.red),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: Colors.red),
+      ),
+    );
+  }
 }
