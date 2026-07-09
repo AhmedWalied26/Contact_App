@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:contact_app/core/app_colors.dart';
 import 'package:contact_app/core/widgets/custom_button.dart';
 import 'package:contact_app/widgets/image_bottom_sheet.dart';
 import 'package:contact_app/widgets/form_bottom_sheet.dart';
 import 'package:contact_app/widgets/info_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddContactBottomSheet extends StatefulWidget {
   const AddContactBottomSheet({super.key});
@@ -19,14 +22,49 @@ class _AddContactBottomSheetState extends State<AddContactBottomSheet> {
 
   final TextEditingController phoneController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    userNameController.addListener(() {
+      setState(() {});
+    });
+    emailController.addListener(() {
+      setState(() {});
+    });
+    phoneController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    userNameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+
+  File? selectedImage;
+
+  final picker = ImagePicker();
+  Future<void> pickImage() async {
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        selectedImage = File(image.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Container(
       margin: .only(bottom: MediaQuery.of(context).viewInsets.bottom),
-      padding: .all(height * 0.018),
-      height: height * 0.51,
+      padding: .all(18),
+      height: 500,
       decoration: BoxDecoration(
         borderRadius: .circular(40),
         color: AppColors.darkBlue,
@@ -37,19 +75,29 @@ class _AddContactBottomSheetState extends State<AddContactBottomSheet> {
           children: [
             Row(
               children: [
-                ImageBottomSheet(),
-                SizedBox(width: width * 0.02),
-                InfoBottomSheet(),
+                ImageBottomSheet(onTap: pickImage, image: selectedImage),
+                const SizedBox(width: 18),
+                InfoBottomSheet(
+                  username: userNameController.text.isEmpty
+                      ? 'User Name'
+                      : userNameController.text,
+                  mail: emailController.text.isEmpty
+                      ? 'example@email.com'
+                      : emailController.text,
+                  phone: phoneController.text.isEmpty
+                      ? '+200000000000'
+                      : phoneController.text,
+                ),
               ],
             ),
-            SizedBox(height: height * 0.02),
+            const SizedBox(height: 20),
             FormBottomSheet(
               formKey: _formkey,
               userNameController: userNameController,
               phoneController: phoneController,
               emailController: emailController,
             ),
-            SizedBox(height: height * 0.02),
+            const SizedBox(height: 20),
             CustomButton(
               hasIcon: false,
               onTap: () {

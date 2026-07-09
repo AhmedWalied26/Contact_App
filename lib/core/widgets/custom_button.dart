@@ -13,8 +13,8 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: hasIcon
-            ? .symmetric(vertical: 9)
-            : const EdgeInsets.symmetric(vertical: 18),
+            ? const .symmetric(vertical: 9)
+            : const EdgeInsets.symmetric(vertical: 14),
         shape: RoundedRectangleBorder(
           borderRadius: hasIcon ? .circular(8) : BorderRadius.circular(16),
         ),
@@ -29,10 +29,10 @@ class CustomButton extends StatelessWidget {
               mainAxisAlignment: .center,
               children: [
                 Image.asset(AppAssets.trashIcon),
-                Text('Delete', style: AppStyles.deleteText),
+                const Text('Delete', style: AppStyles.deleteText),
               ],
             )
-          : Text('Add Contact', style: AppStyles.buttonText),
+          : const Text('Add Contact', style: AppStyles.buttonText),
     );
   }
 }

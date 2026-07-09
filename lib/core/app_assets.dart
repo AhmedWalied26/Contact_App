@@ -10,4 +10,6 @@ abstract class AppAssets {
   static const String mailIcon = 'assets/icons/mail_icon.png';
   static const String phoneIcon = 'assets/icons/phone_icon.png';
   static const String trashIcon = 'assets/icons/trash_icon.png';
+  static const String trashIconFloating =
+      'assets/icons/trash_icon_floating.png';
 }

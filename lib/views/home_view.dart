@@ -16,7 +16,14 @@ class HomeView extends StatelessWidget {
       ),
       backgroundColor: AppColors.darkBlue,
       body: BodyContact(),
-      floatingActionButton: CustomFloatingActionButton(),
+      floatingActionButton: Column(
+        mainAxisAlignment: .end,
+        spacing: 8,
+        children: [
+          CustomFloatingActionButton(isAddButton: false),
+          CustomFloatingActionButton(),
+        ],
+      ),
     );
   }
 }
