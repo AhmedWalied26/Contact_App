@@ -2,6 +2,7 @@ import 'package:contact_app/core/app_assets.dart';
 import 'package:contact_app/core/app_colors.dart';
 import 'package:contact_app/core/widgets/custom_floating_action_button.dart';
 import 'package:contact_app/widgets/body_contact.dart';
+import 'package:contact_app/widgets/body_no_contact.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -15,7 +16,7 @@ class HomeView extends StatelessWidget {
         title: Image.asset(AppAssets.route),
       ),
       backgroundColor: AppColors.darkBlue,
-      body: BodyContact(),
+      body: BodyNoContact(),
       floatingActionButton: Column(
         mainAxisAlignment: .end,
         spacing: 8,

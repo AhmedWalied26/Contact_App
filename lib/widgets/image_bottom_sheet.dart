@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:contact_app/core/app_assets.dart';
 import 'package:contact_app/core/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class ImageBottomSheet extends StatelessWidget {
   final Function onTap;
@@ -24,7 +25,7 @@ class ImageBottomSheet extends StatelessWidget {
           border: Border.all(color: AppColors.gold),
         ),
         child: image == null
-            ? Image.asset(AppAssets.imageLogo)
+            ? Lottie.asset(AppAssets.imagePicker)
             : ClipRRect(
                 borderRadius: .circular(28),
                 child: Image.file(image!, fit: .cover),

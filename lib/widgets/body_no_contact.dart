@@ -13,8 +13,8 @@ class BodyNoContact extends StatelessWidget {
     return Column(
       mainAxisAlignment: .center,
       children: [
-        LottieBuilder.asset(AppAssets.animation, width: width * 0.8),
-        LottieBuilder.asset(AppAssets.animation),
+        LottieBuilder.asset(AppAssets.placeHolder, width: width * 0.8),
+        LottieBuilder.asset(AppAssets.placeHolder),
         SizedBox(height: height * 0.1),
         Text('There is No Contacts Added Here', style: AppStyles.homeText),
       ],
