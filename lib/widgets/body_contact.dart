@@ -3,15 +3,20 @@ import 'package:contact_app/widgets/card_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class BodyContact extends StatelessWidget {
-  const BodyContact({super.key, required this.contacts});
+  const BodyContact({
+    super.key,
+    required this.contacts,
+    required this.onDelete,
+  });
 
   final List<ContactModel> contacts;
+  final Function(int) onDelete;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: CardGridView(contacts: contacts),
+      child: CardGridView(onDelete: onDelete, contacts: contacts),
     );
   }
 }

@@ -3,8 +3,13 @@ import 'package:contact_app/widgets/card_item.dart';
 import 'package:flutter/widgets.dart';
 
 class CardGridView extends StatelessWidget {
-  const CardGridView({super.key, required this.contacts});
+  const CardGridView({
+    super.key,
+    required this.contacts,
+    required this.onDelete,
+  });
   final List<ContactModel> contacts;
+  final Function(int) onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,13 @@ class CardGridView extends StatelessWidget {
         mainAxisSpacing: 16,
         childAspectRatio: 1 / 1.55,
       ),
-      itemBuilder: (context, index) =>
-          CardItem(contacts: contacts, contact: contacts[index]),
+      itemBuilder: (context, index) => CardItem(
+        onDeleteTap: () {
+          onDelete(index);
+        },
+        contacts: contacts,
+        contact: contacts[index],
+      ),
       itemCount: contacts.length,
     );
   }

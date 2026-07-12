@@ -1,5 +1,5 @@
 import 'package:contact_app/core/app_validation.dart';
-import 'package:contact_app/core/widgets/custom_text_field.dart';
+import 'package:contact_app/widgets/custom_text_field.dart';
 import 'package:flutter/widgets.dart';
 
 class FormBottomSheet extends StatelessWidget {

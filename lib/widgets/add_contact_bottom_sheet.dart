@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:contact_app/core/app_colors.dart';
-import 'package:contact_app/core/widgets/custom_button.dart';
+import 'package:contact_app/widgets/custom_button.dart';
 import 'package:contact_app/models/contact_model.dart';
 import 'package:contact_app/widgets/image_bottom_sheet.dart';
 import 'package:contact_app/widgets/form_bottom_sheet.dart';

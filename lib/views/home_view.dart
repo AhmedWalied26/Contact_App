@@ -1,6 +1,6 @@
 import 'package:contact_app/core/app_assets.dart';
 import 'package:contact_app/core/app_colors.dart';
-import 'package:contact_app/core/widgets/custom_floating_action_button.dart';
+import 'package:contact_app/widgets/custom_floating_action_button.dart';
 import 'package:contact_app/models/contact_model.dart';
 import 'package:contact_app/widgets/body_contact.dart';
 import 'package:contact_app/widgets/body_no_contact.dart';
@@ -15,6 +15,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  void deleteContact(int index) {
+    widget.contacts.removeAt(index);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: AppColors.darkBlue,
       body: widget.contacts.isEmpty
           ? BodyNoContact()
-          : BodyContact(contacts: widget.contacts),
+          : BodyContact(onDelete: deleteContact, contacts: widget.contacts),
       floatingActionButton: Column(
         mainAxisAlignment: .end,
         spacing: 8,

@@ -5,9 +5,15 @@ import 'package:contact_app/widgets/card_image.dart';
 import 'package:flutter/material.dart';
 
 class CardItem extends StatelessWidget {
-  const CardItem({super.key, required this.contact, required this.contacts});
+  const CardItem({
+    super.key,
+    required this.contact,
+    required this.contacts,
+    required this.onDeleteTap,
+  });
   final ContactModel contact;
   final List<ContactModel> contacts;
+  final VoidCallback onDeleteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,13 @@ class CardItem extends StatelessWidget {
         children: [
           CardImage(contact: contact),
           const SizedBox(height: 17),
-          CardData(contact: contact, contacts: contacts),
+          CardData(
+            onDeleteTap: () {
+              onDeleteTap();
+            },
+            contact: contact,
+            contacts: contacts,
+          ),
         ],
       ),
     );
