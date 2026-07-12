@@ -59,6 +59,8 @@ class _AddContactBottomSheetState extends State<AddContactBottomSheet> {
     }
   }
 
+  final contacts = [];
+
   @override
   Widget build(BuildContext context) {
     return Container(

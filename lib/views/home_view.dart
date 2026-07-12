@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
         title: Image.asset(AppAssets.route),
       ),
       backgroundColor: AppColors.darkBlue,
-      body: BodyNoContact(),
+      body: BodyContact(),
       floatingActionButton: Column(
         mainAxisAlignment: .end,
         spacing: 8,
