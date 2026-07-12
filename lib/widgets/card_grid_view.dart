@@ -1,8 +1,10 @@
+import 'package:contact_app/models/contact_model.dart';
 import 'package:contact_app/widgets/card_item.dart';
 import 'package:flutter/widgets.dart';
 
 class CardGridView extends StatelessWidget {
-  const CardGridView({super.key});
+  const CardGridView({super.key, required this.contacts});
+  final List<ContactModel> contacts;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +15,9 @@ class CardGridView extends StatelessWidget {
         mainAxisSpacing: 16,
         childAspectRatio: 1 / 1.55,
       ),
-      itemBuilder: (context, index) => CardItem(),
-      itemCount: 10,
+      itemBuilder: (context, index) =>
+          CardItem(contacts: contacts, contact: contacts[index]),
+      itemCount: contacts.length,
     );
   }
 }

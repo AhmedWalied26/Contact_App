@@ -1,11 +1,11 @@
-import 'package:contact_app/core/app_assets.dart';
 import 'package:contact_app/core/app_colors.dart';
 import 'package:contact_app/core/app_styles.dart';
+import 'package:contact_app/models/contact_model.dart';
 import 'package:flutter/material.dart';
 
 class CardImage extends StatelessWidget {
-  const CardImage({super.key});
-
+  const CardImage({super.key, required this.contact});
+  final ContactModel contact;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,10 +19,7 @@ class CardImage extends StatelessWidget {
             topRight: .circular(16),
           ),
           color: AppColors.gold,
-          image: DecorationImage(
-            fit: .cover,
-            image: AssetImage(AppAssets.image1),
-          ),
+          image: DecorationImage(fit: .cover, image: FileImage(contact.image)),
         ),
         child: Container(
           padding: .all(8),
@@ -30,7 +27,7 @@ class CardImage extends StatelessWidget {
             color: AppColors.gold,
             borderRadius: .circular(8),
           ),
-          child: Text('Leo Messi', style: AppStyles.titleCard),
+          child: Text(contact.userName, style: AppStyles.titleCard),
         ),
       ),
     );
